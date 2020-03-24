@@ -1,0 +1,6 @@
+-Djava.net.preferIPv4Stack=true -Dcsp.sentinel.api.port=8722 -Dcsp.sentinel.dashboard.server=10.38.163.216:8181 -Dproject.name=back-provider
+
+-Djava.net.preferIPv4Stack=true
+-Dcsp.sentinel.api.port=8722
+-Dcsp.sentinel.dashboard.server=10.38.163.216:8181
+-Dproject.name=back-provider
