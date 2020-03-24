@@ -68,36 +68,34 @@ public class ConsumerBootstrap {
             }
         });
 
+        for (int j = 0; j < 1000000000; j++) {
+            try {
+                logger.info(demoService.sayName("小马哥（mercyblitz）"));
+                Object ret = demoService.test();
+                if(ret instanceof JSONObject) {
+                    JSONObject json = (JSONObject) ret;
+                    System.out.println(json.getString("name"));
+                }else{
+                    System.out.println(ret);
+                }
+                Thread.sleep(1000L);
+
+            }catch(Exception e){
+            }
+        }
+
+//        System.out.println(System.currentTimeMillis());
+//        CompletableFuture<String> f = demoService.futureName("JM");
+//        System.out.println("String complete "+System.currentTimeMillis());
+//        f.whenComplete((r,t)->{
+//            System.out.println(r);
+//            System.out.println("End complete "+System.currentTimeMillis());
 //
-//        for (int j = 0; j < 1000000000; j++) {
-//            try {
-//                logger.info(demoService.sayName("小马哥（mercyblitz）"));
+//        });
 //
-////                Object ret = demoService.test();
-////                if(ret instanceof JSONObject) {
-////                    JSONObject json = (JSONObject) ret;
-////                    System.out.println(json.getString("name"));
-////                }else{
-////                    System.out.println(ret);
-////                }
-//                Thread.sleep(1000L);
+//        System.out.println(demoService.sayName("MM"));
 //
-//            }catch(Exception e){
-//            }
-//        }
-
-        System.out.println(System.currentTimeMillis());
-        CompletableFuture<String> f = demoService.futureName("JM");
-        System.out.println("String complete "+System.currentTimeMillis());
-        f.whenComplete((r,t)->{
-            System.out.println(r);
-            System.out.println("End complete "+System.currentTimeMillis());
-
-        });
-
-        System.out.println(demoService.sayName("MM"));
-
-        Thread.sleep(TimeUnit.SECONDS.toMillis(50));
+//        Thread.sleep(TimeUnit.SECONDS.toMillis(50));
     }
 
     public static void main(String[] args) throws IOException {
