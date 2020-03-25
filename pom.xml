@@ -18,31 +18,7 @@
 
     <properties>
         <dubbo.version>2.7.5</dubbo.version>
-        <brave.version>5.6.9</brave.version>
-        <zipkin-reporter.version>2.7.9</zipkin-reporter.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- 引入 zipkin brave 的 BOM 文件 -->
-            <dependency>
-                <groupId>io.zipkin.brave</groupId>
-                <artifactId>brave-bom</artifactId>
-                <version>${brave.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- 引入 zipkin repoter 的 BOM 文件 -->
-            <dependency>
-                <groupId>io.zipkin.reporter2</groupId>
-                <artifactId>zipkin-reporter-bom</artifactId>
-                <version>${zipkin-reporter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
 
@@ -78,35 +54,7 @@
             <artifactId>hutool-all</artifactId>
             <version>4.5.18</version>
         </dependency>
-        <!-- 1. brave 对 dubbo 的集成 -->
-        <dependency>
-            <groupId>io.zipkin.brave</groupId>
-            <artifactId>brave-instrumentation-dubbo-rpc</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.alibaba</groupId>
-                    <artifactId>dubbo</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
-        <!-- 2. brave 的 spring bean 支持 -->
-        <dependency>
-            <groupId>io.zipkin.brave</groupId>
-            <artifactId>brave-spring-beans</artifactId>
-        </dependency>
-
-        <!-- 3. 在 SLF4J 的 MDC (Mapped Diagnostic Context) 中支持 traceId 和 spanId -->
-        <dependency>
-            <groupId>io.zipkin.brave</groupId>
-            <artifactId>brave-context-slf4j</artifactId>
-        </dependency>
-
-        <!-- 4. 使用 okhttp3 作为 reporter -->
-        <dependency>
-            <groupId>io.zipkin.reporter2</groupId>
-            <artifactId>zipkin-sender-okhttp3</artifactId>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
@@ -118,32 +66,13 @@
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
-            <version>0.9.1</version>
+            <version>1.2.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.ctrip.framework.apollo/apollo-client -->
         <dependency>
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-client</artifactId>
             <version>1.6.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-transport-simple-http -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-transport-simple-http</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-apache-dubbo-adapter -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-apache-dubbo-adapter</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-parameter-flow-control -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-parameter-flow-control</artifactId>
-            <version>1.6.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.grpc/grpc-okhttp -->
         <dependency>
