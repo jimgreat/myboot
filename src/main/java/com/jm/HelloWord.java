@@ -1,8 +1,10 @@
 package com.jm;
 
+import com.dubbo.back.BackService;
 import com.jm.ds.DS;
 import com.jm.ds.DataSourceContextHolder;
 import com.jm.service.ICityService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class HelloWord {
     @Autowired
     ICityService cityService;
 
+    @Reference(version = "1.0.0")
+    private BackService backService;
+
     @RequestMapping("index")
     @ResponseBody
     public String index(){
@@ -36,7 +41,10 @@ public class HelloWord {
             c.setName("City-"+i);
         }
         cityService.findCity("CN");
-        return "hello,Spring boot!"+DataSourceContextHolder.getDB();
+
+        String r = backService.back(" from SpringBoot!");
+
+        return "hello,Spring boot!"+DataSourceContextHolder.getDB()+" "+r;
     }
 
 
