@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController implements ApplicationContextAware {
 
     private ApplicationContext ac;
-
     @Value("${server.port}")
     private Integer port;
 
