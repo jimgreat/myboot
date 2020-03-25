@@ -1,9 +1,6 @@
 package com.jm;
 
 import com.jm.service.IMyService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -56,13 +53,4 @@ public class LoginController implements ApplicationContextAware {
         return "log";
     }
 
-    @RequestMapping("/dolog")
-    @ResponseBody
-    public String dolog(){
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("a","Pwd");
-        subject.login(token);
-        logger.debug("DOLOG");
-        return "dolog";
-    }
 }
