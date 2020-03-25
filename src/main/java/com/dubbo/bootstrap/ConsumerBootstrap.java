@@ -16,10 +16,6 @@
  */
 package com.dubbo.bootstrap;
 
-import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallback;
-import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallbackRegistry;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.alibaba.csp.sentinel.slots.block.SentinelRpcException;
 import com.alibaba.fastjson.JSONObject;
 import com.dubbo.service.DemoService;
 import org.apache.dubbo.config.annotation.Method;
@@ -59,14 +55,6 @@ public class ConsumerBootstrap {
     @PostConstruct
     public void init() throws InterruptedException {
 
-
-        DubboFallbackRegistry.setConsumerFallback(new DubboFallback() {
-            @Override
-            public Result handle(Invoker<?> invoker, Invocation invocation, BlockException ex) {
-                logger.debug("Flow Blocked");
-                throw new SentinelRpcException(ex);
-            }
-        });
 
         for (int j = 0; j < 1000000000; j++) {
             try {
