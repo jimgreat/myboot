@@ -36,6 +36,13 @@ public class ProviderBootstrap {
         context.register(ProviderBootstrap.class);
         context.refresh();
         System.out.println("DemoService provider is starting...");
-        System.in.read();
+        while(true) {
+            try {
+                Thread.sleep(5000);
+                System.out.println("I'm alive.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -294,22 +294,28 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <mainClass>com.dubbo.bootstrap.ProviderBootstrap</mainClass>
+                </configuration>
             </plugin>
 
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.14</version>
                 <configuration>
-                    <mainClass>com.dubbo.bootstrap.BackProvider</mainClass>
+                    <imageName>${project.artifactId}:${project.version}</imageName>
+                    <baseImage>java:8</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <dockerHost>http://10.0.0.88:2375</dockerHost>
                 </configuration>
             </plugin>
         </plugins>
