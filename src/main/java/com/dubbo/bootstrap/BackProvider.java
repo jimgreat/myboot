@@ -24,6 +24,13 @@ public class BackProvider {
         context.refresh();
         logger.debug("HIHIHIHIHII");
         System.out.println("Back provider is starting...");
-        System.in.read();
+        while(true) {
+            try {
+                Thread.sleep(5000);
+                System.out.println("I'm alive.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }
