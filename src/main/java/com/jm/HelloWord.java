@@ -1,9 +1,11 @@
 package com.jm;
 
 import com.dubbo.back.BackService;
+import com.dubbo.service.DemoService;
 import com.jm.ds.DS;
 import com.jm.ds.DataSourceContextHolder;
 import com.jm.service.ICityService;
+import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,9 @@ public class HelloWord {
     @Reference(version = "1.0.0")
     private BackService backService;
 
+    @Reference(version = "${demo.service.version}")
+    private DemoService demoService;
+
     @RequestMapping("index")
     @ResponseBody
     public String index(){
@@ -44,7 +49,9 @@ public class HelloWord {
 
         String r = backService.back(" from SpringBoot!");
 
-        return "hello,Spring boot!"+DataSourceContextHolder.getDB()+" "+r;
+        String str = demoService.sayName("jimgreat");
+
+        return "hello,Spring boot!"+DataSourceContextHolder.getDB()+" "+r+" "+str;
     }
 
 
