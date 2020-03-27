@@ -43,11 +43,11 @@ public class HelloWord {
     @DS(value = "hi")
     public String hello(@RequestParam(name = "msg",defaultValue = "") String msg) {
         logger.info("hi");
-        for(int i=0;i<1;i++) {
-            City c = new City();
-            c.setName("City-"+i);
-        }
-        cityService.findCity("CN");
+//        for(int i=0;i<1;i++) {
+//            City c = new City();
+//            c.setName("City-"+i);
+//        }
+//        cityService.findCity("CN");
 
         String r = backService.back(" from SpringBoot!");
 
