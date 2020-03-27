@@ -233,7 +233,7 @@
                 <configuration>
                     <imageName>${project.artifactId}:${project.version}</imageName>
                     <baseImage>java:8</baseImage>
-                    <entryPoint>["java","-Dcsp.sentinel.dashboard.server=10.1.154.238:8282","-Dapollo.configService=http://10.1.16.89:8080", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["java","-Djava.net.preferIPv4Stack=true","-Dcsp.sentinel.api.port=8720","-Dproject.name=dubbo-back","-Dcsp.sentinel.dashboard.server=10.1.154.238:8282","-Dapollo.configService=http://10.1.16.89:8080", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
