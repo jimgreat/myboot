@@ -1,7 +1,7 @@
 package com.jm;
 
-import com.business.entity.Game;
-import com.business.service.GameService;
+import com.jm.business.entity.Game;
+import com.jm.business.service.GameService;
 import com.dubbo.back.BackService;
 import com.jm.ds.DS;
 import com.jm.ds.DataSourceContextHolder;
