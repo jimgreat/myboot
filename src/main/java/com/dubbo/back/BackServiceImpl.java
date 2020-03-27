@@ -8,6 +8,6 @@ public class BackServiceImpl implements BackService {
 
     @Override
     public String back(String msg) {
-        return "I'm Back 2 ["+msg+"] with cnt:";
+        return "I'm Back 2 ["+msg+"]";
     }
 }
