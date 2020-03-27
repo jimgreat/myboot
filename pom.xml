@@ -215,7 +215,7 @@
                 <configuration>
                     <imageName>${project.artifactId}:${project.version}</imageName>
                     <baseImage>java:8</baseImage>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["java","-Dapollo.configService=http://10.1.16.89:8080", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
