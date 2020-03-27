@@ -26,6 +26,8 @@ public class HelloWord {
     @Autowired
     ICityService cityService;
 
+    @Autowired
+    GameService gameService;
 
     @Reference(version = "1.0.0")
     private BackService backService;
@@ -49,8 +51,10 @@ public class HelloWord {
 
         String r = backService.back(" from SpringBoot!");
 
+        List<Game> li = gameService.list();
+        int cnt = li.size();
 
-        return "hello,Spring boot!"+DataSourceContextHolder.getDB()+" "+r;
+        return "hello,Spring boot!"+DataSourceContextHolder.getDB()+" "+r+" with cnt:"+cnt;
     }
 
 
