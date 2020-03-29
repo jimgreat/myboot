@@ -1,6 +1,7 @@
 package com.dubbo.bootstrap;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,8 +13,9 @@ import java.io.IOException;
 
 @EnableDubbo(scanBasePackages = "com.dubbo.back")
 @EnableAutoConfiguration
-@ComponentScan(value = "com.dubbo.bootstrap")
-@PropertySource(value = "classpath:/back-provider-config.properties")
+@MapperScan("com.jm.business.mapper")
+@ComponentScan(value = {"com.dubbo.bootstrap", "com.jm.business.service"})
+@PropertySource(value = "classpath:/back-config.properties")
 public class BackProvider {
 
     private static Logger logger = LoggerFactory.getLogger(BackProvider.class.getName());
