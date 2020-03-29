@@ -1,4 +1,4 @@
-package com.business.entity;
+package com.jm.business.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -13,8 +13,8 @@ import java.io.IOException;
 
 @EnableDubbo(scanBasePackages = "com.dubbo.back")
 @EnableAutoConfiguration
-@MapperScan("com.business.mapper")
-@ComponentScan(value = {"com.dubbo.bootstrap","com.business.service"})
+@MapperScan("com.jm.business.mapper")
+@ComponentScan(value = {"com.dubbo.bootstrap", "com.jm.business.service"})
 @PropertySource(value = "classpath:/back-config.properties")
 public class BackProvider {
 

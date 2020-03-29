@@ -1,9 +1,9 @@
-package com.business.service;
+package com.jm.business.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.business.entity.Game;
-import com.business.mapper.GameMapper;
+import com.jm.business.entity.Game;
+import com.jm.business.mapper.GameMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

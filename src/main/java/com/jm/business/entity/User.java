@@ -1,4 +1,4 @@
-package com.business.entity;
+package com.jm.business.entity;
 
 import lombok.Builder;
 import lombok.Data;
