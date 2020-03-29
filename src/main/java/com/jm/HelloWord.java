@@ -1,6 +1,7 @@
 package com.jm;
 
 import com.jm.business.entity.Game;
+import com.jm.business.entity.User;
 import com.jm.business.service.GameService;
 import com.dubbo.back.BackService;
 import com.jm.ds.DS;
@@ -34,8 +35,8 @@ public class HelloWord {
 
     @RequestMapping("index")
     @ResponseBody
-    public String index(){
-        return "Index";
+    public List<User> index(){
+        return backService.getUsers();
     }
 
     @RequestMapping("")
