@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 @RequestMapping("/")
@@ -40,11 +41,13 @@ public class HelloWord {
     @Autowired
     DefaultMQProducer defaultMQProducer;
 
+    AtomicInteger aint = new AtomicInteger();
+
     @RequestMapping("mq")
     @ResponseBody
     public Object mq(){
         try {
-            String name = "VALUE";
+            String name = "VALUE:"+aint.getAndIncrement();
             Message msg = new Message("TopicTest", "tags1", name.getBytes(RemotingHelper.DEFAULT_CHARSET));
             defaultMQProducer.send(msg);
             return "OK";

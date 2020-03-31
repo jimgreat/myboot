@@ -19,7 +19,7 @@ public class DefaultConsumerMQ extends AbstractRocketConsumer {
             @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
                 msgs.forEach(msg -> {
-                    System.out.printf("consumer message boyd %s %n", new String(msg.getBody()));
+                    System.out.printf("consumer message body %s %n", new String(msg.getBody()));
                 });
                 // 标记该消息已经被成功消费
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
