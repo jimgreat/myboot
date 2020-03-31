@@ -15,7 +15,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
     <properties>
         <dubbo.version>2.7.4.1</dubbo.version>
     </properties>
@@ -48,11 +47,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.1.2.Final</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -72,7 +70,6 @@
             <artifactId>hutool-all</artifactId>
             <version>4.5.18</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
