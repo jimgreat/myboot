@@ -1,5 +1,5 @@
 stages:
-- name: compile
+- name: Build
   steps:
   - runScriptConfig:
       image: maven:3.3-jdk-8
