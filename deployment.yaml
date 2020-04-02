@@ -20,5 +20,5 @@ spec:
     spec:
       containers:
       - name: back
-        image: images/dubbo-back:v1
+        image: 10.0.0.88:7709/images/dubbo-back:v1
         imagePullPolicy: IfNotPresent
