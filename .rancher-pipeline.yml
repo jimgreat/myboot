@@ -12,6 +12,8 @@ stages:
       tag: images/dubbo-back:v1
       pushRemote: true
       registry: 10.0.0.88:7709
+    env:
+      CICD_LOCAL_REGISTRY: 10.0.0.88:7708
 - name: Deploy
   steps:
   - applyYamlConfig:
