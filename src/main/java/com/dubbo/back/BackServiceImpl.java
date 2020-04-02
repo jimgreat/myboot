@@ -43,6 +43,6 @@ public class BackServiceImpl implements BackService {
 
         String v = stringRedisTemplate.opsForValue().get(key);
 
-        return "I'm Back 2 ["+msg+" with cnt:"+cnt+" redis v:"+v+"]";
+        return "I'm Back Service ["+msg+" with cnt:"+cnt+" redis v:"+v+"]";
     }
 }
