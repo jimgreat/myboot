@@ -11,6 +11,6 @@ stages:
       buildContext: .
       tag: images/dubbo-back:v1
       pushRemote: true
-      registry: 127.0.0.1:34317
+      registry: 10.0.0.88:7709
 timeout: 60
 notification: {}
