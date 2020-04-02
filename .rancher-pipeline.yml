@@ -14,6 +14,8 @@ stages:
       registry: 10.0.0.88:7709
     env:
       CICD_LOCAL_REGISTRY: 10.0.0.88:7708
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 - name: Deploy
   steps:
   - applyYamlConfig:
