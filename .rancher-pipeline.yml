@@ -12,5 +12,9 @@ stages:
       tag: images/dubbo-back:v1
       pushRemote: true
       registry: 10.0.0.88:7709
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
