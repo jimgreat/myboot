@@ -79,7 +79,7 @@
             <artifactId>nacos-client</artifactId>
             <version>1.4.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.ctrip.framework.apollo/apollo-client -->
+        <!-- https://mvnrepository.com/artif        act/com.ctrip.framework.apollo/apollo-client -->
         <dependency>
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-client</artifactId>
@@ -172,9 +172,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <mainClass>com.jm.Application</mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
+                            <goal>run</goal>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
