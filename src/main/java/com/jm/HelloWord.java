@@ -31,8 +31,8 @@ public class HelloWord {
     @Autowired
     GameService gameService;
 
-//    @Reference(version = "1.0.0")
-//    private BackService backService;
+    @Reference(version = "1.0.0")
+    private BackService backService;
 
     AtomicInteger aint = new AtomicInteger();
 
@@ -67,8 +67,7 @@ public class HelloWord {
 //        }
 //        cityService.findCity("CN");
 
-//        String r = backService.back(" from SpringBoot!");
-String r = "R";
+        String r = backService.back(" from SpringBoot!");
         List<Game> li = gameService.list();
         int cnt = li.size();
 
