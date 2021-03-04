@@ -4,7 +4,6 @@ import com.jm.business.entity.Game;
 import com.jm.business.entity.User;
 import com.jm.business.service.GameService;
 import com.dubbo.back.BackService;
-import com.jm.core.DefaultConsumerMQ;
 import com.jm.ds.DS;
 import com.jm.ds.DataSourceContextHolder;
 import com.jm.service.ICityService;
@@ -35,8 +34,8 @@ public class HelloWord {
     @Autowired
     GameService gameService;
 
-    @Reference(version = "1.0.0")
-    private BackService backService;
+//    @Reference(version = "1.0.0")
+//    private BackService backService;
 
     @Autowired
     DefaultMQProducer defaultMQProducer;
@@ -59,7 +58,8 @@ public class HelloWord {
     @RequestMapping("index")
     @ResponseBody
     public List<User> index(){
-        return backService.getUsers();
+        return null;
+//        return backService.getUsers();
     }
 
     @RequestMapping("")
@@ -73,8 +73,8 @@ public class HelloWord {
 //        }
 //        cityService.findCity("CN");
 
-        String r = backService.back(" from SpringBoot!");
-
+//        String r = backService.back(" from SpringBoot!");
+String r = "R";
         List<Game> li = gameService.list();
         int cnt = li.size();
 
