@@ -37,23 +37,20 @@ public class HelloWord {
 //    @Reference(version = "1.0.0")
 //    private BackService backService;
 
-    @Autowired
-    DefaultMQProducer defaultMQProducer;
-
     AtomicInteger aint = new AtomicInteger();
 
-    @RequestMapping("mq")
-    @ResponseBody
-    public Object mq(){
-        try {
-            String name = "VALUE:"+aint.getAndIncrement();
-            Message msg = new Message("TopicTest", "tags1", name.getBytes(RemotingHelper.DEFAULT_CHARSET));
-            defaultMQProducer.send(msg);
-            return "OK";
-        }catch (Exception e){
-            return "ERROR";
-        }
-    }
+//    @RequestMapping("mq")
+//    @ResponseBody
+//    public Object mq(){
+//        try {
+//            String name = "VALUE:"+aint.getAndIncrement();
+//            Message msg = new Message("TopicTest", "tags1", name.getBytes(RemotingHelper.DEFAULT_CHARSET));
+//            defaultMQProducer.send(msg);
+//            return "OK";
+//        }catch (Exception e){
+//            return "ERROR";
+//        }
+//    }
 
     @RequestMapping("index")
     @ResponseBody
