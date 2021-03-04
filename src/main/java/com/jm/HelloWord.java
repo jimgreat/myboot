@@ -1,5 +1,6 @@
 package com.jm;
 
+import com.dubbo.service.DemoService;
 import com.jm.business.entity.Game;
 import com.jm.business.entity.User;
 import com.jm.business.service.GameService;
@@ -7,6 +8,7 @@ import com.dubbo.back.BackService;
 import com.jm.ds.DS;
 import com.jm.ds.DataSourceContextHolder;
 import com.jm.service.ICityService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +33,11 @@ public class HelloWord {
     @Autowired
     GameService gameService;
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private BackService backService;
 
-    AtomicInteger aint = new AtomicInteger();
+    @DubboReference(version = "1.0.0")
+    private DemoService demoService;
 
 //    @RequestMapping("mq")
 //    @ResponseBody
@@ -51,9 +54,9 @@ public class HelloWord {
 
     @RequestMapping("index")
     @ResponseBody
-    public List<User> index(){
-        return null;
-//        return backService.getUsers();
+    public String index(){
+        String r = demoService.sayName("from index");
+        return r;
     }
 
     @RequestMapping("")
