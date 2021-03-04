@@ -5,8 +5,9 @@ import com.jm.business.entity.User;
 import com.jm.business.service.GameService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -16,15 +17,11 @@ public class BackServiceImpl implements BackService {
     @Autowired
     GameService gameService;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
-
     @Override
     public List<User> getUsers()
     {
         User u = User.builder().userName("Hi").build();
-        mongoTemplate.insert(u);
-        List<User> li = mongoTemplate.findAll(User.class);
+        List<User> li = Collections.singletonList(u);
         return li;
     }
 
